@@ -60,3 +60,65 @@ h6 {
 #__next {
     isolation: isolate;
 }
+/* 
+body {
+    height: 100vh;
+    width: 100vw;
+    background-image: url(assets/library.jpg);
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+} */
+
+.container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    background-color: burlywood;
+    height: 100vh;
+}
+
+.header {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 3rem;
+}
+
+.card-group {
+    width: 100vh;
+
+    display: grid;
+}
+
+/* Card styling */
+.card {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    background-color: lightsteelblue;
+    border-radius: 1rem;
+    padding: 2rem;
+    width: 200px;
+    gap: 0.5rem;
+}
+
+.card-title {
+    /* padding: 1.rem; */
+}
+
+.button-group {
+    display: flex;
+    gap: 1.5rem;
+}
+
+.card-status {
+    padding: 2rem 0;
+}
+
+.btn {
+    border: none;
+    padding: 0.25rem 0.75rem;
+    border-radius: 0.5rem;
+    font-weight: 600;
+}
