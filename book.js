@@ -1,5 +1,6 @@
 const myLibrary = [];
 
+// Functions
 function Book(title, author, pages, status) {
     this.title = title;
     this.author = author;
@@ -12,6 +13,9 @@ function addBookToLibrary(book) {
 }
 
 function listLibrary() {
+    const cardGroup = document.querySelector(".card-group");
+    cardGroup.innerHTML = "";
+
     for (let i = 0; i < myLibrary.length; i++) {
         const card = document.createElement("div");
         card.classList.add("card");
@@ -28,11 +32,11 @@ function listLibrary() {
 
         const cardAuthorName = document.createElement("span");
         cardAuthorName.classList.add("card-author-name");
-        cardAuthorName.textContent = author;
+        cardAuthorName.textContent = "Author: " + author;
 
         const cardPages = document.createElement("span");
         cardPages.classList.add("card-pages");
-        cardPages.textContent = pages;
+        cardPages.textContent = "Pages: " + pages;
 
         const cardStatus = document.createElement("span");
         cardStatus.classList.add("card-status");
@@ -58,17 +62,39 @@ function listLibrary() {
 
         const cardDeleteBtn = document.createElement("button");
         cardDeleteBtn.classList.add("card-delete-btn", "btn");
+        cardDeleteBtn.id = i;
         cardDeleteBtn.innerHTML = "Delete";
+
+        cardDeleteBtn.addEventListener("click", function () {
+            myLibrary.splice(i, 1);
+
+            listLibrary();
+        });
 
         buttonGroup.appendChild(cardReadBtn);
         buttonGroup.appendChild(cardDeleteBtn);
 
         card.appendChild(buttonGroup);
 
-        const cardGroup = document.querySelector(".card-group");
         cardGroup.appendChild(card);
     }
 }
+
+// Event Listeners
+document.addEventListener("DOMContentLoaded", function () {
+    // Event Listeners
+    const buttons = document.querySelectorAll("button");
+
+    buttons.forEach(function (button) {
+        button.addEventListener("click", function () {
+            button.style.backgroundColor = "lightgray";
+
+            setTimeout(function () {
+                button.style.backgroundColor = "antiquewhite";
+            }, 100);
+        });
+    });
+});
 
 const book1 = new Book("Book1", "John", 234, false);
 const book2 = new Book("Book2", "harry", 235757, false);
@@ -78,11 +104,6 @@ const book4 = new Book("book4", "john", 5234, true);
 addBookToLibrary(book1);
 addBookToLibrary(book2);
 addBookToLibrary(book3);
-addBookToLibrary(book3);
-addBookToLibrary(book3);
-addBookToLibrary(book3);
-addBookToLibrary(book3);
-addBookToLibrary(book3);
-addBookToLibrary(book3);
+addBookToLibrary(book4);
 
 listLibrary();
