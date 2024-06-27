@@ -12,6 +12,8 @@ function addBookToLibrary(book) {
     myLibrary.push(book);
 }
 
+function createCard() {}
+
 function listLibrary() {
     const cardGroup = document.querySelector(".card-group");
     cardGroup.innerHTML = "";
@@ -60,9 +62,14 @@ function listLibrary() {
         cardReadBtn.classList.add("card-read-btn", "btn");
         cardReadBtn.innerHTML = "Read";
 
+        cardReadBtn.addEventListener("click", function () {
+            myLibrary[i].status = true;
+
+            listLibrary();
+        });
+
         const cardDeleteBtn = document.createElement("button");
         cardDeleteBtn.classList.add("card-delete-btn", "btn");
-        cardDeleteBtn.id = i;
         cardDeleteBtn.innerHTML = "Delete";
 
         cardDeleteBtn.addEventListener("click", function () {
