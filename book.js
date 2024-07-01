@@ -89,6 +89,14 @@ function listLibrary() {
     }
 }
 
+function clearForm() {
+    document.getElementById("title").value = "";
+    document.getElementById("author").value = "";
+    document.getElementById("pages").value = "";
+    document.getElementById("reading").checked = false;
+    document.getElementById("read").checked = false;
+}
+
 // Event Listeners
 document.addEventListener("DOMContentLoaded", function () {
     // Event Listeners
@@ -117,13 +125,33 @@ addBookBtn.addEventListener("click", () => {
 
 closeBtn.addEventListener("click", () => {
     overlay.style.display = "none";
+
+    clearForm();
 });
 
 form.addEventListener("submit", (event) => {
     event.preventDefault();
 
-    console.log("hello");
+    // Take all of the form values
+    const title = document.getElementById("title").value;
+    const author = document.getElementById("author").value;
+    const pages = document.getElementById("pages").value;
+    const reading = document.getElementById("reading").value;
+
+    // Validate status
+    if (reading) {
+        addBookToLibrary(new Book(title, author, pages, false));
+    } else {
+        addBookToLibrary(new Book(title, author, pages, true));
+    }
+
+    // Reset the display
+    listLibrary();
+
+    // Clear form
+    clearForm();
 });
+
 // Populate the library with books
 const book1 = new Book("Book1", "John", 234, false);
 const book2 = new Book("Book2", "harry", 235757, false);

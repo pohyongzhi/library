@@ -148,3 +148,17 @@ label {
     justify-content: space-between;
     padding: 0 1rem;
 }
+
+.status-radio-group {
+    display: flex;
+    justify-content: center;
+    gap: 3rem;
+}
+
+.radio-group {
+    display: flex;
+}
+
+.radio-group > label {
+    padding: 0 0.5rem;
+}

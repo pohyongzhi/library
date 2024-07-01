@@ -29,10 +29,25 @@
                             Pages:
                             <input id="pages" type="text" />
                         </label>
-                        <label for="Status">
+                        <div class="status-radio-group">
                             Status:
-                            <input id="Status" type="text" />
-                        </label>
+                            <div class="radio-group">
+                                <input
+                                    id="reading"
+                                    type="radio"
+                                    name="reading"
+                                    value="reading"
+                                />
+                                <label for="reading"> Reading </label>
+                                <input
+                                    id="read"
+                                    type="radio"
+                                    name="read"
+                                    value="read"
+                                />
+                                <label for="read"> Read </label>
+                            </div>
+                        </div>
 
                         <button id="submit-btn" type="submit">Submit</button>
                     </form>
