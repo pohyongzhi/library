@@ -13,6 +13,33 @@
                 <!-- <span>By: Poh Yong Zhi</span> -->
             </div>
             <div class="card-group"></div>
+            <div id="overlay">
+                <dialog>
+                    <h2>Add a new book</h2>
+                    <form action="submit">
+                        <label for="title">
+                            Title:
+                            <input id="title" type="text" />
+                        </label>
+                        <label for="author">
+                            Author:
+                            <input id="author" type="text" />
+                        </label>
+                        <label for="pages">
+                            Pages:
+                            <input id="pages" type="text" />
+                        </label>
+                        <label for="Status">
+                            Status:
+                            <input id="Status" type="text" />
+                        </label>
+
+                        <button id="submit-btn" type="submit">Submit</button>
+                    </form>
+                    <button class="btn" id="close-btn">Close</button>
+                </dialog>
+            </div>
+            <button class="btn" id="add-book-btn">Add Book</button>
         </div>
         <script src="book.js"></script>
     </body>

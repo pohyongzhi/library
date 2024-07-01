@@ -8,11 +8,13 @@ function Book(title, author, pages, status) {
     this.status = status;
 }
 
+Book.prototype.toggleReadStatus = function () {
+    this.status = !this.status;
+};
+
 function addBookToLibrary(book) {
     myLibrary.push(book);
 }
-
-function createCard() {}
 
 function listLibrary() {
     const cardGroup = document.querySelector(".card-group");
@@ -63,7 +65,7 @@ function listLibrary() {
         cardReadBtn.innerHTML = "Read";
 
         cardReadBtn.addEventListener("click", function () {
-            myLibrary[i].status = true;
+            myLibrary[i].toggleReadStatus();
 
             listLibrary();
         });
@@ -103,6 +105,26 @@ document.addEventListener("DOMContentLoaded", function () {
     });
 });
 
+const addBookBtn = document.querySelector("#add-book-btn");
+const closeBtn = document.querySelector("#close-btn");
+const form = document.querySelector("form");
+const submitBtn = document.querySelector("#submit-btn");
+const overlay = document.getElementById("overlay");
+
+addBookBtn.addEventListener("click", () => {
+    overlay.style.display = "flex";
+});
+
+closeBtn.addEventListener("click", () => {
+    overlay.style.display = "none";
+});
+
+form.addEventListener("submit", (event) => {
+    event.preventDefault();
+
+    console.log("hello");
+});
+// Populate the library with books
 const book1 = new Book("Book1", "John", 234, false);
 const book2 = new Book("Book2", "harry", 235757, false);
 const book3 = new Book("Book3", "some", 2345, true);
@@ -114,3 +136,6 @@ addBookToLibrary(book3);
 addBookToLibrary(book4);
 
 listLibrary();
+
+// Hide div
+overlay.style.display = "none";
